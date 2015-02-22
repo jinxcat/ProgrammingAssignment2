@@ -13,13 +13,21 @@
 ## - getting the inverse of the matrix
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL  ## inverse. if not calculated, equal to NULL
+        
+        ## sets the matrix
         set <- function(y) {
                 x <<- y  ## new value for matrix
                 inv <<- NULL  ## delete cached inverse
         }
+        
+        ## gets the stored matrix
         get <- function() x
-        setinverse <- function(solve) inv <<- solve  ## sets new inverse
-        getinverse <- function() inv  ## gets inverse value
+        
+        ## sets a new inverse matrix
+        setinverse <- function(solve) inv <<- solve
+        
+        ## gets the stored inverse matrix (may be NULL)
+        getinverse <- function() inv
         
         ## list of all available functions of the object
         list(set = set, get = get,
